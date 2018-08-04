@@ -4,7 +4,7 @@ const config = {
   "ownerid": "191615236363649025",
   "botadminid": "365444611981967371",
 
-  "token": "",
+  "token": process.env.BOT_TOKEN,
  "prefix": "//",
 
   "defaultSettings" : {
