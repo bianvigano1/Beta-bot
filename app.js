@@ -12,7 +12,7 @@ const hastebin = require('hastebin-gen');
 
 
 //MUSIC
-
+//
 
 
 const active = new Map();
