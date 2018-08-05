@@ -7,7 +7,7 @@ var Discord = require("discord.js");
       msg.delete()
       var pingembed = new Discord.RichEmbed()
      .setTitle("Pong")
-     .setDescription(`took: ${msg.createdTimestamp - message.createdTimestamp}ms | API: \`${API}\``)
+     .setDescription(`took: \`${msg.createdTimestamp - message.createdTimestamp}\` ms | API: \`${API}\` ms`)
      .setColor('36393e')
      msg.channel.send(pingembed)
     });
