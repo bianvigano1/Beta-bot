@@ -1,6 +1,6 @@
 var Discord = require("discord.js");
 const dateFormat = require('dateformat');
-
+dateFormat('dddd, mmmm dS, yyyy, h:MM:ss TT')
 
 
 
@@ -11,13 +11,9 @@ const dateFormat = require('dateformat');
     
     var num = 0;
       
+    let useruser = (message.mentions.users.first() || message.author)
+    let member = message.guild.member(useruser);
 
-let useruser = (message.mentions.users.first() || message.author)
-
-
-
-
-let member = message.guild.member(useruser);
 if (!member) {
   message.channel.send('That member could not be found!')
   return;
@@ -29,8 +25,9 @@ var user = member || useruser;
 const millisCreated = new Date().getTime() - useruser.createdAt.getTime();
 const daysCreated = millisCreated / 1000 / 60 / 60 / 24;
 
-const millisJoined = new Date().getTime() - useruser.joinedAt.getTime();
+const millisJoined = new Date().getTime() - member.joinedAt.getTime();
 const daysJoined = millisJoined / 1000 / 60 / 60 / 24;
+
 
 let rolopes = member.roles.array().slice(1).sort((a, b) => a.comparePositionTo(b)).reverse().map(role => role.name);
 if (rolopes.length < 1) rolopes = ['None'];
