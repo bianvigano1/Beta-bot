@@ -13,7 +13,7 @@ const fs = require("fs");
 
         case "prefix":
         let prefix_args = args.join(" ").slice(7);
-        var prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
+        var prefixes = JSON.parse(fs.readFileSync("./../prefixes.json", "utf8"));
 
 if(prefix_args) {
   if (prefix_args !== "reset") {
@@ -21,7 +21,7 @@ if(prefix_args) {
     prefixes: prefix_args
   };
 
-  fs.writeFile("./prefixes.json", JSON.stringify(prefixes), (err) => {
+  fs.writeFile("./../prefixes.json", JSON.stringify(prefixes), (err) => {
     if (err) console.log(err)
   });
 
@@ -39,7 +39,7 @@ message.channel.send(embed)
     prefixes: "//"
   };
 
-  fs.writeFile("./prefixes.json", JSON.stringify(prefixes), (err) => {
+  fs.writeFile("./../prefixes.json", JSON.stringify(prefixes), (err) => {
     if (err) console.log(err)
   });
 
@@ -308,7 +308,7 @@ break;
 
 
 default:
-var prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
+var prefixes = JSON.parse(fs.readFileSync("./../prefixes.json", "utf8"));
 
 var settings = await db.fetch(`gulid__${message.guild.id}`);
 var welcome_emoji = settings.welcome_enable ? "<:toggleON:468559199467470869>" : "<:toggleOFF:468559199467733002>";
