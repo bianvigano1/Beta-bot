@@ -32,26 +32,26 @@ const daysCreated = millisCreated / 1000 / 60 / 60 / 24;
 const millisJoined = new Date().getTime() - useruser.joinedAt.getTime();
 const daysJoined = millisJoined / 1000 / 60 / 60 / 24;
 
-let rolopes = user.roles.array().slice(1).sort((a, b) => a.comparePositionTo(b)).reverse().map(role => role.name);
+let rolopes = member.roles.array().slice(1).sort((a, b) => a.comparePositionTo(b)).reverse().map(role => role.name);
 if (rolopes.length < 1) rolopes = ['None'];
 let emboped = new Discord.RichEmbed()
 .setTitle('User Infomation')
 .setColor('36393e')
 .setThumbnail(useruser.displayAvatarURL)
-.setDescription(`Infomation about the ${user.user.username}.`)
+.setDescription(`Infomation about the ${member.user.username}.`)
 .setTimestamp()
 .setURL('https://discord.js.org/#/docs/main/indev/class/RichEmbed')
-.addField('User name', user.user.username + "#" + user.user.discriminator, true)
-.addField('User ID ', user.id, true)
-.addField('Last Message', user.lastMessage, true) 
-.addField('Last Message ID', user.lastMessageID, true) 
-.addField('Created On ',  dateFormat(user.createdAt), true)
+.addField('User name', member.user.username + "#" + member.user.discriminator, true)
+.addField('User ID ', member.id, true)
+.addField('Last Message', member.lastMessage, true) 
+.addField('Last Message ID', member.lastMessageID, true) 
+.addField('Created On ',  dateFormat(member.createdAt), true)
 .addField('Days Since Creation ',  daysCreated.toFixed(0), true)
-.addField('Joined On ',  dateFormat(user.joinedAt), true)
+.addField('Joined On ',  dateFormat(member.joinedAt), true)
 .addField('Days Since Joining ',  daysJoined.toFixed(0), true)
-.addField('status ',  user.presence.status[0].toUpperCase() + user.presence.status.slice(1), true)
-.addField("Bot?", `${user.user.bot}`, true)
-.addField("Game", `${user.presence.game ? user.presence.game.name : 'None'}`, true)
+.addField('status ',  member.presence.status[0].toUpperCase() + member.presence.status.slice(1), true)
+.addField("Bot?", `${member.user.bot}`, true)
+.addField("Game", `${member.presence.game ? member.presence.game.name : 'None'}`, true)
 
 .addField('Roles ',  rolopes.join(', '), true)
 
