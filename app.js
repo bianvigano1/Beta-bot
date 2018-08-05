@@ -12,7 +12,7 @@ const hastebin = require('hastebin-gen');
 
 
 //MUSIC
-//
+
 
 
 const active = new Map();
@@ -347,6 +347,12 @@ bot.on('channelPinsUpdate', (channel, time) => {
     
 
                   bot.on("guildCreate", guild => {
+                    var prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
+                    prefixes[guild.id] = {
+                      prefixes: "//"
+                    };
+                  
+
                     db.set(`gulid__${guild.id}`, { prefix: "//", welcome: "null", welcome_enable: false, mod_logs: "null", report_channel: "null", mod_logs_enabled: false})
                     db.set(`cases__${guild.id}`, 0);
                 });
