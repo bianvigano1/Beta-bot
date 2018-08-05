@@ -7,7 +7,7 @@ const fs = require("fs");
     var missingpermebed = new Discord.RichEmbed()
     .setDescription("<:modError:468064170257154069> Only server admin can use this command")
     .setColor("36393e")
-    if((!message.member.hasPermission("MANAGE_GUILD")) || (!message.author.id == "191615236363649025")) return message.channel.send(missingpermebed)
+    if((message.member.hasPermission("MANAGE_GUILD")) || (message.author.id == "191615236363649025")) {
     
       switch (args[0]) {
 
@@ -331,7 +331,9 @@ var settings_embed = new Discord.RichEmbed()
 message.channel.send(settings_embed)
       }
 
+    } else return message.channel.send(missingpermebed)
 
+    
 
 
 
