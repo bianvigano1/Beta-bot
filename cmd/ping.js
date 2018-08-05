@@ -1,11 +1,13 @@
 var Discord = require("discord.js");
   exports.run = (bot, message, args = []) => {
+    let API = (bot.ping).toFixed(2)
+
     message.channel.send('Ping?')
     .then(msg => {
       msg.delete()
       var pingembed = new Discord.RichEmbed()
      .setTitle("Pong")
-     .setDescription(`took: ${msg.createdTimestamp - message.createdTimestamp}ms`)
+     .setDescription(`took: ${msg.createdTimestamp - message.createdTimestamp}ms | API: \`${API}\``)
      .setColor('36393e')
      msg.channel.send(pingembed)
     });
