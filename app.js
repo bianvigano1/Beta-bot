@@ -273,7 +273,7 @@ bot.on('channelPinsUpdate', (channel, time) => {
             if(modlog) return modlog.send({embed: rolecreateembed}).catch(console.error);
               
             });
-            
+            /*
             bot.on('roleUpdate', async role => {
               var isEnabled = await db.fetch(`gulid__${role.guild.id}`, { target: '.mod_logs_enabled' });
               if (isEnabled == false) return; 
@@ -288,7 +288,7 @@ bot.on('channelPinsUpdate', (channel, time) => {
                 if(modlog) return modlog.send({embed: roleupdateembed}).catch(console.error);
                   
                 });
-                
+                */
                 bot.on('roleDelete', async role => {
                   var isEnabled = await db.fetch(`gulid__${role.guild.id}`, { target: '.mod_logs_enabled' });
                   if (isEnabled == false) return; 
