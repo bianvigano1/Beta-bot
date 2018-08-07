@@ -319,8 +319,7 @@ bot.on('channelPinsUpdate', (channel, time) => {
                     if (isEnabled == false) return; 
                       if (message.channel.type !== 'text') return;
                       if(message.author.bot) return;
-                      var prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
-                      if(message.content.startsWith(prefixes[message.guild.id].prefixes)) return;
+                      if(message.content.startsWith("//")) return;
                       var modlogschan = await db.fetch(`gulid__${message.guild.id}`, { target: '.mod_logs' });
                       var modlog = await message.guild.channels.get(modlogschan);
                       if (!modlog) return;
