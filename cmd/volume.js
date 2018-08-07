@@ -33,7 +33,7 @@ fetched.dispatcher.setVolume(args[0]/100)
 
 var donemanvolemobed = new Discord.RichEmbed() 
 .setTitle("Music")
-.setDescription(`Now volume of ${fetched.queue.songTitle} is ${args[0]}`)
+.setDescription(`Now volume of ${fetched.queue[0].songTitle} is ${args[0]}`)
 .setTimestamp()
 
 message.channel.send(donemanvolemobed)
