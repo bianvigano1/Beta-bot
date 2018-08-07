@@ -18,7 +18,7 @@ const db = require('quick.db');
 
   var rchannelid = await db.fetch(`gulid__${message.guild.id}`, { target: '.report_channel' });
   var rchannel = await message.guild.channels.get(rchannelid);
-  var nochannelembed = new Discord.MessageEmbed()
+  var nochannelembed = new Discord.RichEmbed()
   .setTitle("Error")
   .setAuthor(message.author.username, message.author.displayAvatarURL)
   .setDescription("report channel not found")
@@ -30,7 +30,7 @@ const db = require('quick.db');
 
 
   //`${message.author.username}#${message.author.discriminator}`
-    let reportembed = new Discord.MessageEmbed()
+    let reportembed = new Discord.RichEmbed()
     .setDescription(`Report | case #${i}` )
     .setColor("#ff0000")
     .addField("Reported User", `${rUser} with ID: ${rUser.id}`, true)
