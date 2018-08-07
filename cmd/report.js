@@ -32,11 +32,12 @@ const db = require('quick.db');
   //`${message.author.username}#${message.author.discriminator}`
     let reportembed = new Discord.RichEmbed()
     .setDescription(`Report | case #${i}` )
-    .setColor("#ff0000")
-    .addField("Reported User", `${rUser} with ID: ${rUser.id}`, true)
-   .addField("Reported By", `${message.author} with ID: ${message.author.id}`, true)
-    .addField("Channel", message.channel, true)
- 
+    .addField("Reported User", `${rUser} with ID: ${rUser.id}`)
+   .addField("Reported By", `${message.author} with ID: ${message.author.id}`)
+    .addField("Channel", message.channel)
+    .setThumbnail(rUser.user.displayAvatarURL)
+ .setTimestamp()
+ .setFooter("Beta", bot.user.displayAvatarURL)
    .addField("Reason", rreason);
       message.delete().catch(O_o=>{});
       rchannel.send(reportembed);
