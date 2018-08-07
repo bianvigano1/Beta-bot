@@ -1,15 +1,12 @@
 var Discord = require("discord.js");
-const mongoose = require("mongoose");
 const db = require('quick.db');
 
   exports.run = async (bot, message, args = []) => {
-let mod_case;
-    db.fetch(`cases__${message.guild.id}`).then(i => mod_case = i);
 
 
 
     if(args[0] == "help"){
-      message.reply("Usage: !report <user> <reason>");
+      message.reply("Usage: //report <user> <reason>");
       return;
     }
     
@@ -19,17 +16,15 @@ let mod_case;
     if (rUser.id === message.author.id) return errors.sameuser
     if(!rreason) return errors.noReason(message.channel);
 
- // var rchannelid = await db.fetch(`gulid__${message.guild.id}`, { target: '.report_channel' });
+  var rchannelid = await db.fetch(`gulid__${message.guild.id}`, { target: '.report_channel' });
+  var rchannel = await message.guild.channels.get(rchannelid);
   var nochannelembed = new Discord.MessageEmbed()
   .setTitle("Error")
   .setAuthor(message.author.username, message.author.displayAvatarURL)
   .setDescription("report channel not found")
   .setTimestamp()
-  .setColor("#fff")
-  if(rchannel == "null") return message.channel.send(nochannelembed)
+  if(!rchannel) return message.channel.send(nochannelembed)
 
-  message.delete();
-  var rchannel = await message.guild.channels.get(rchannelid);
 
     db.add(`cases__${message.guild.id}`, 1).then(function(i) {
 
@@ -38,13 +33,11 @@ let mod_case;
     let reportembed = new Discord.MessageEmbed()
     .setDescription(`Report | case #${i}` )
     .setColor("#ff0000")
-    .addField("Reported User", `${rUser} with ID: ${rUser.id} | Full name: ${message.mentions.users.first().username}#${message.mentions.users.first().discriminator}`)
-   .addField("Reported By", `${message.author} with ID: ${message.author.id} | Full name: ${message.author.username}#${message.author.discriminator}`)
-    .addField("Channel", message.channel)
+    .addField("Reported User", `${rUser} with ID: ${rUser.id}`, true)
+   .addField("Reported By", `${message.author} with ID: ${message.author.id}`, true)
+    .addField("Channel", message.channel, true)
  
    .addField("Reason", rreason);
-   let reportschannel = message.guild.channels.find(`name`, "reports");
-      if(!reportschannel) return message.channel.send("Couldn't find reports channel.");
       message.delete().catch(O_o=>{});
       rchannel.send(reportembed);
       });

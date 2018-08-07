@@ -256,6 +256,12 @@ await db.delete(`cases__${message.guild.id}`)
 
 db.set(`gulid__${message.guild.id}`, { prefix: "//", welcome: "null", welcome_enable: false, mod_logs: "null", report_channel: "null", mod_logs_enabled: false})
 db.set(`cases__${message.guild.id}`, 0);
+var embed = new Discord.RichEmbed()
+.setAuthor(message.author.username, message.author.displayAvatarURL)
+.setDescription(`Reseten config`)
+.setFooter("Beta", bot.user.displayAvatarURL)
+.setTimestamp()
+
 break;
 
 

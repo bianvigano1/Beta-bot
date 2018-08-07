@@ -75,7 +75,7 @@ bot.on("message", async message => {
   .setColor('36393e')
   let ops = {
     ownerID: ownerID,
-    active: active
+    active: active,
   }
 if (cmd.conf.guildOnly === true) {
   if(message.channel.type === "dm") return message.author.send(guildOnlyembed)

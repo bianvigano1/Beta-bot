@@ -26,7 +26,6 @@ var moment = require("moment")
 
 
     if (!data.connection) data.connection = await message.member.voiceChannel.join();
-
     if (!data.queue) data.queue = [];
 
 
@@ -101,7 +100,7 @@ async function play(bot, ops, data) {
 function finish(bot, ops, dispatcher) {
   let fetched = ops.active.get(dispatcher.guildID);
 
-  fetched.queue.shift();
+ fetched.queue.shift();
 
   if (fetched.queue.length > 0) {
 
