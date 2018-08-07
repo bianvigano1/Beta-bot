@@ -52,17 +52,10 @@ fs.readdir("./cmd/", (err, files) => {
 ///////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////
 bot.on("message", async message => {
-let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
-    if (!prefixes[message.guild.id]) {
-        prefixes[message.guild.id] = {
-            prefixes: bot.config.prefix
-        };
-    }
 
-    let prefix = prefixes[message.guild.id].prefixes;
 
-  if (!message.content.startsWith(prefix)) return;
-  let command = message.content.split(" ")[0].slice(prefix.length);
+  if (!message.content.startsWith(bot.config.prefix)) return;
+  let command = message.content.split(" ")[0].slice(bot.config.prefix);
   let args = message.content.split(" ").slice(1);
  
   let perms = bot.elevation(message);
@@ -347,11 +340,7 @@ bot.on('channelPinsUpdate', (channel, time) => {
     
 
                   bot.on("guildCreate", guild => {
-                    var prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
-                    prefixes[guild.id] = {
-                      prefixes: "//"
-                    };
-                  
+                   
 
                     db.set(`gulid__${guild.id}`, { prefix: "//", welcome: "null", welcome_enable: false, mod_logs: "null", report_channel: "null", mod_logs_enabled: false})
                     db.set(`cases__${guild.id}`, 0);

@@ -11,66 +11,7 @@ const fs = require("fs");
     
       switch (args[0]) {
 
-        case "prefix":
-        let prefix_args = args.join(" ").slice(7);
-        var prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
-
-if(prefix_args) {
-  if (prefix_args !== "reset") {
-  prefixes[message.guild.id] = {
-    prefixes: prefix_args
-  };
-
-  fs.writeFile("./prefixes.json", JSON.stringify(prefixes), (err) => {
-    if (err) console.log(err)
-  });
-
-var embed = new Discord.RichEmbed()
-.setTitle(`Server prefix`)
-.setDescription(`Now server prefix is "${prefix_args}"`)
-.setTimestamp()
-.setFooter(`Beta`, bot.user.displayAvatarURL)
-
-message.channel.send(embed)
-
-} else if (prefix_args == "reset") {
-
-  prefixes[message.guild.id] = {
-    prefixes: "//"
-  };
-
-  fs.writeFile("./prefixes.json", JSON.stringify(prefixes), (err) => {
-    if (err) console.log(err)
-  });
-
-  var embed = new Discord.RichEmbed()
-  .setTitle(`Server prefix`)
-  .setDescription(`Now server prefix is "//"`)
-  .setTimestamp()
-  .setFooter(`Beta`, bot.user.displayAvatarURL)
-  
-  message.channel.send(embed)
-
-}
-
-} else {
-  var embed = new Discord.RichEmbed()
-  .setTitle(`Server prefix`)
-  .setDescription(`Invilad input`)
-  .setTimestamp()
-  .setFooter(`Beta`, bot.user.displayAvatarURL)
-  
-  message.channel.send(embed)
-
-
-}
-   
-
-        
-        break;
-
-
-
+      
 case "welcome-channel":
 var welchannel = await db.fetch(`gulid__${message.guild.id}`, { target: '.welcome' });
 if(welchannel == "null")
@@ -117,7 +58,12 @@ if (welenargs == "on") {
 .setFooter(`Requested by: ${message.author.username}`, message.author.displayAvatarURL)
   if(welenable == true) return message.channel.send(ifonmanembed)
   await db.set(`gulid__${message.guild.id}`, true, { target: '.welcome_enable' });
-
+  var embed = new Discord.RichEmbed()
+  .setColor("36393e")
+  .setDescription("<:user:468562311666466817> Now welcomeing is disabled")
+  .setTimestamp()
+.setFooter(`Requested by: ${message.author.username}`, message.author.displayAvatarURL)
+  message.channel.send(embed)
 } else if (welenargs == "off") {
 
   var ifonmanembed = new Discord.RichEmbed()
@@ -308,7 +254,6 @@ break;
 
 
 default:
-var prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
 
 var settings = await db.fetch(`gulid__${message.guild.id}`);
 var welcome_emoji = settings.welcome_enable ? "<:toggleON:468559199467470869>" : "<:toggleOFF:468559199467733002>";
@@ -319,7 +264,6 @@ var settings_embed = new Discord.RichEmbed()
 .setThumbnail(message.guild.iconURL)
 .setColor("36393e")
 .setDescription("do //config <settings name> <value>")
-.addField("<:chat:468566310633340930> Prefix", prefixes[message.guild.id].prefixes, true)
 .addField("   <:report:468566310666895361> report-channel", settings.report_channel == "null" ?  "Not set" : message.guild.channels.get(settings.report_channel), true)
 .addField(`<:user:468562311666466817> welcome-channel [${settings.welcome_enable ? "Enabled" : "Disabled"}]`, settings.welcome == "null" ?  "Not set" : message.guild.channels.get(settings.welcome), true)
 .addField(`${welcome_emoji} welcome-enable`, settings.welcome_enable ? "ON" : "OFF", true)
