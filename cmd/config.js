@@ -250,12 +250,12 @@ break;
 case "reset":
 
 await db.delete(`gulid__${message.guild.id}`)
-await db.delete(`cases__${guild.id}`)
+await db.delete(`cases__${message.guild.id}`)
 
 
 
-db.set(`gulid__${guild.id}`, { prefix: "//", welcome: "null", welcome_enable: false, mod_logs: "null", report_channel: "null", mod_logs_enabled: false})
-db.set(`cases__${guild.id}`, 0);
+db.set(`gulid__${message.guild.id}`, { prefix: "//", welcome: "null", welcome_enable: false, mod_logs: "null", report_channel: "null", mod_logs_enabled: false})
+db.set(`cases__${message.guild.id}`, 0);
 break;
 
 
