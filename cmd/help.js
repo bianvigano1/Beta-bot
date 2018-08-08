@@ -66,14 +66,15 @@ if(message.author.id == "191615236363649025" || message.author.id == "3654446119
   .addField(`Bot admin commands [${ownern}]`, owneri.slice(0, owneri.length - 2))
 
 
-  var cantembed = new Discord.RichEmbed()
-  .setDescription(`Error happen: ${err}`)
-  .setFooter("Beta", bot.user.displayAvatarURL)
+  
   try {
     message.author.send(embed)
 
 }
 catch(err) {
+  var cantembed = new Discord.RichEmbed()
+  .setDescription(`Error happen: ${err}`)
+  .setFooter("Beta", bot.user.displayAvatarURL)
 message.channel.send(cantembed).then(function (m) { m.delete(3500) 
   message.channel.send(embed
   )});
@@ -91,15 +92,16 @@ message.channel.send(cantembed).then(function (m) { m.delete(3500)
   .addField(`music commands [${musicn}]`, music1.slice(0, music1.length - 2))
   .addField(`administration commands [${administrationn}]`, administrationi.slice(0, administrationi.length - 2))
   
-  var cantembed = new Discord.RichEmbed()
-  .setDescription(`Error happen: ${err}`)
-  .setFooter("Beta", bot.user.displayAvatarURL)
+ 
 
   try {
     message.author.send(embed)
 
 }
 catch(err) {
+  var cantembed = new Discord.RichEmbed()
+  .setDescription(`Error happen: ${err}`)
+  .setFooter("Beta", bot.user.displayAvatarURL)
 message.channel.send(cantembed).then(function (m) { m.delete(3500)
    message.channel.send(embed
   )});
