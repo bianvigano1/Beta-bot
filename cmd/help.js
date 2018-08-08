@@ -3,12 +3,6 @@ var Discord = require("discord.js");
 
   
     if (!args[0]) {
-      var helllpembed = new Discord.RichEmbed()
-      .setAuthor(message.author.username, message.author.displayAvatarURL)
-      .setDescription("I have just sent you a message with available commands! <:email:468411167308513291>")
-      .setTimestamp()
-      .setColor('36393e')
-      message.channel.send(helllpembed)
    
       var catgorys = ["fun", "info", "administration", "owner", "music"]
 
@@ -67,19 +61,10 @@ if(message.author.id == "191615236363649025" || message.author.id == "3654446119
 
 
   
-  try {
-    message.author.send(embed)
+  
+    message.channel.send(embed)
 
-}
-catch(err) {
-  var cantembed = new Discord.RichEmbed()
-  .setDescription(`Error happen: ${err}`)
-  .setFooter("Beta", bot.user.displayAvatarURL)
-message.channel.send(cantembed).then(function (m) { m.delete(3500) 
-  message.channel.send(embed
-  )});
-
-}} else {
+} else {
   var embed = new Discord.RichEmbed()
 
   .setTitle("Command List")
@@ -94,18 +79,8 @@ message.channel.send(cantembed).then(function (m) { m.delete(3500)
   
  
 
-  try {
-    message.author.send(embed)
+    message.channel.send(embed)
 
-}
-catch(err) {
-  var cantembed = new Discord.RichEmbed()
-  .setDescription(`Error happen: ${err}`)
-  .setFooter("Beta", bot.user.displayAvatarURL)
-message.channel.send(cantembed).then(function (m) { m.delete(3500)
-   message.channel.send(embed
-  )});
-};
 
 };
     
