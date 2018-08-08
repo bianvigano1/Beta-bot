@@ -22,7 +22,7 @@ const dateFormat = require('dateformat');
     .addField("Guild Creation Date", message.guild.createdAt, true)
     .addField('Highest Role', message.guild.roles.sort((a, b) => a.position - b.position || a.id - b.id).last().name, true)
     .addField('Roles size', message.guild.roles.size, true)
-    .addField("Roles", message.guild.roles.map(roles => `${roles}`).join('[  |  ](http://)'), true)
+    .addField("Roles", message.guild.roles.map(roles => `${roles}`).join('  |  '), true)
   
     message.channel.send(embed)
    
