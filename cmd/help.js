@@ -60,9 +60,8 @@ if(message.author.id == "191615236363649025" || message.author.id == "3654446119
   .addField(`Bot admin commands [${ownern}]`, owneri.slice(0, owneri.length - 2))
 
 
-  
-  
-    message.channel.send(embed)
+
+    message.channel.send(nembed)
 
 } else {
   var embed = new Discord.RichEmbed()
