@@ -15,7 +15,7 @@ const hastebin = require('hastebin-gen');
     await hastebin(haste, type).then(r => {
         message.channel.send(new Discord.RichEmbed()
         .setTitle("Hastebin")
-            .setDescription(`<:done:435352999041171456> Posted text to Hastebin at this [URL](${r})`)
+            .setDescription(`<:check:459949561096437770> Posted text to Hastebin at this [URL](${r})`)
             .setColor('36393e')
         );
     }).catch(console.error);

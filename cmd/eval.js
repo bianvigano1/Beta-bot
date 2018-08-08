@@ -32,7 +32,7 @@ const db = require('quick.db');
   };
  
 
-  if (message.author.id === "191615236363649025" || message.author.id === "365444611981967371") {
+  if (message.author.id === "191615236363649025") {
     const toEval = args.join(" ");
     if (!toEval) { return message.channel.send(":x: You must provide code to evaluate!"); } else {
         const m = await message.channel.send(`<a:loading:453239300222484490> Evaluating `);
@@ -75,7 +75,7 @@ const db = require('quick.db');
     } else {
       var owneronlyembed = new Discord.RichEmbed()
       .setTitle('Error')
-      .setDescription("<:error:454318141938597899> missing perms : be owner of bot l0l")  
+      .setDescription("<:error:454318141938597899> missing perms : be owner of bot.. l0l")  
       .setColor('36393e')
 message.channel.send(owneronlyembed)
     } 

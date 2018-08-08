@@ -59,7 +59,7 @@ if(message.author.id == "191615236363649025" || message.author.id == "3654446119
   .addField(`administration commands [${administrationn}]`, administrationi.slice(0, administrationi.length - 2))
   .addField(`Bot admin commands [${ownern}]`, owneri.slice(0, owneri.length - 2))
 
-
+ 
 
     message.channel.send(nembed)
 

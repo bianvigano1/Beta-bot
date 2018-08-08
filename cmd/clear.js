@@ -34,7 +34,7 @@ var Discord = require("discord.js");
 exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: ["clean"],
+  aliases: ["clean", "purge"],
   permLevel: 0
 };
 

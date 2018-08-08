@@ -60,7 +60,7 @@ if (welenargs == "on") {
   await db.set(`gulid__${message.guild.id}`, true, { target: '.welcome_enable' });
   var embed = new Discord.RichEmbed()
   .setColor("36393e")
-  .setDescription("<:user:468562311666466817> Now welcomeing is disabled")
+  .setDescription("<:user:468562311666466817> Now welcomeing is Enabled")
   .setTimestamp()
 .setFooter(`Requested by: ${message.author.username}`, message.author.displayAvatarURL)
   message.channel.send(embed)
