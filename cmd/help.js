@@ -64,8 +64,21 @@ if(message.author.id == "191615236363649025" || message.author.id == "3654446119
   .addField(`music commands [${musicn}]`, music1.slice(0, music1.length - 2))
   .addField(`administration commands [${administrationn}]`, administrationi.slice(0, administrationi.length - 2))
   .addField(`Bot admin commands [${ownern}]`, owneri.slice(0, owneri.length - 2))
-  message.author.send(nembed)
-} else {
+
+
+  var cantembed = new Discord.RichEmbed()
+  .setDescription(`Error happen: ${err}`)
+  .setFooter("Beta", bot.user.displayAvatarURL)
+  try {
+    message.author.send(embed)
+
+}
+catch(err) {
+message.channel.send(cantembed).then(function (m) { m.delete(3500) 
+  message.channel.send(embed
+  )});
+
+}} else {
   var embed = new Discord.RichEmbed()
 
   .setTitle("Command List")
@@ -77,9 +90,22 @@ if(message.author.id == "191615236363649025" || message.author.id == "3654446119
   .addField(`info commands [${infon}]`, infoi.slice(0, infoi.length - 2))
   .addField(`music commands [${musicn}]`, music1.slice(0, music1.length - 2))
   .addField(`administration commands [${administrationn}]`, administrationi.slice(0, administrationi.length - 2))
-  message.author.send(embed)
+  
+  var cantembed = new Discord.RichEmbed()
+  .setDescription(`Error happen: ${err}`)
+  .setFooter("Beta", bot.user.displayAvatarURL)
+
+  try {
+    message.author.send(embed)
 
 }
+catch(err) {
+message.channel.send(cantembed).then(function (m) { m.delete(3500)
+   message.channel.send(embed
+  )});
+};
+
+};
     
     } else {
     let command = args[0];
@@ -98,7 +124,6 @@ if(message.author.id == "191615236363649025" || message.author.id == "3654446119
       .setDescription(`\n${command.help.description}\n\n  **usage**  :    //${command.help.usage} \n \naliases: \n ${aliasestext.slice(0, aliasestext.length - 3)}`)
       .setColor('36393e')
       message.channel.send(embed)
-  //    message.channel.sendCode("asciidoc", `= ${command.help.name} = \n${command.help.description}\nusage::${command.help.usage}`);
       }
     
   }
