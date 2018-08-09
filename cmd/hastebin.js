@@ -12,7 +12,7 @@ const hastebin = require('hastebin-gen');
     if (!haste[0]) { 
         return console.log('err');
     }
-    await hastebin(haste, type).then(r => {
+    await hastebin(haste, "txt").then(r => {
         message.channel.send(new Discord.RichEmbed()
         .setTitle("Hastebin")
             .setDescription(`<:check:459949561096437770> Posted text to Hastebin at this [URL](${r})`)

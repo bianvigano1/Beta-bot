@@ -4,7 +4,7 @@ var Discord = require("discord.js");
       
 
 
-    const embed = new Discord.MessageEmbed()
+    const embed = new Discord.RichEmbed()
     .setColor('36393e')
     .addField('Name', message.channel.type === 'dm' ? `@${message.channel.recipient.username}` : message.channel.name, true)
     .addField('ID', message.channel.id, true)

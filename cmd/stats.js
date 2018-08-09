@@ -30,7 +30,7 @@ const cpuStat = require("cpu-stat")
       .addField('Memory Usage:',`Rss: ${rssmemory} MB \n heapUsed: ${rssmemory} MB \n heapTotal: ${htmemory} MB \n external: ${exmemory} MB \n Total memory: ${totalmem} MB`, true)
       .addField(`Bot info`, `servers in: ${bot.guilds.size} \n Users: ${bot.users.size} \n Channels in: ${bot.channels.size}\n Uptime: ${uptime}`, true)
       .addField("librarys", `Coding language: Javascript \n Discord.js Version: 11.3.2 \n Node.js Version ${process.version}`, true)
-      .addField("support & invite bot", `[support server](https://discord.gg/Z8BADer) \n [invite me](https://discordapp.com/oauth2/authorize/?permissions=2146958591&scope=bot&client_id=450812379681390594)`, true)
+      .addField("support & invite bot", `[support server](https://discord.gg/Z8BADer) \n [invite me](https://discordapp.com/oauth2/authorize?client_id=428617178359791616&scope=bot&permissions=8)`, true)
     
       .setTimestamp()  
       .setColor("36393e")
