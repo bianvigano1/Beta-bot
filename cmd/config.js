@@ -278,11 +278,12 @@ var settings_embed = new Discord.RichEmbed()
 .setThumbnail(message.guild.iconURL)
 .setColor("36393e")
 .setDescription("do //config <settings name> <value>")
-.addField("   <:report:468566310666895361> report-channel", settings.report_channel == "null" ?  "Not set" : message.guild.channels.get(settings.report_channel), true)
 .addField(`<:user:468562311666466817> welcome-channel [${settings.welcome_enable ? "Enabled" : "Disabled"}]`, settings.welcome == "null" ?  "Not set" : message.guild.channels.get(settings.welcome), true)
 .addField(`${welcome_emoji} welcome-enable`, settings.welcome_enable ? "ON" : "OFF", true)
 .addField(`<:Mod:468410309607030804> mod-logs [${settings.mod_logs_enabled ? "Enabled" : "Disabled"}]`, settings.mod_logs == "null" ?  "Not set" : message.guild.channels.get(settings.mod_logs), true)
 .addField(`${mod_emoji} mod-logs-enable`, settings.mod_logs_enabled ? "ON" : "OFF", true)
+.addField("   <:report:468566310666895361> report-channel", settings.report_channel == "null" ?  "Not set" : message.guild.channels.get(settings.report_channel), true)
+
 .setTimestamp()
 .setFooter(`Requested by: ${message.author.username}`, message.author.displayAvatarURL)
 
