@@ -58,8 +58,10 @@ bot.on("message", async message => {
 if(message.author.bot) return;
 
   if (!message.content.startsWith(bot.config.prefix)) return;
+
   let command = message.content.split(" ")[0].slice(bot.config.prefix.length);
   let args = message.content.split(" ").slice(1);
+  if(args[0] == '') return;
   let perms = bot.elevation(message);
   let cmd;
   if (bot.commands.has(command)) {
