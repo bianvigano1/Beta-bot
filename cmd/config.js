@@ -227,6 +227,7 @@ message.channel.send(embed)
   .setFooter("Beta", bot.user.displayAvatarURL)
   .setTimestamp()
 
+  message.channel.send(embed)
 
  }
 
@@ -241,6 +242,7 @@ message.channel.send(embed)
   .setFooter("Beta", bot.user.displayAvatarURL)
   .setTimestamp()
 
+  message.channel.send(embed)
 
 }
 
@@ -261,7 +263,7 @@ var embed = new Discord.RichEmbed()
 .setDescription(`Reseten config`)
 .setFooter("Beta", bot.user.displayAvatarURL)
 .setTimestamp()
-
+message.channel.send(embed)
 break;
 
 
