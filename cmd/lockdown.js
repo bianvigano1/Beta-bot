@@ -2,7 +2,7 @@ var Discord = require("discord.js");
 const ms = require("ms");
   exports.run = async (bot, message, args = []) => {
 
-    if(message.member.hasPermission("MANAGE_SERVER")) {
+    if(message.member.hasPermission("MANAGE_GUILD")) {
 
     if (!bot.lockit) bot.lockit = [];
   
