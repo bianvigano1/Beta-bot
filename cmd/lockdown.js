@@ -8,7 +8,7 @@ const ms = require("ms");
   
     let time = args.join(' ')
     let validUnlocks = ['release', 'unlock'];
-    var notimeembed = new Discord.MessageEmbed()
+    var notimeembed = new Discord.RichEmbed()
     .setTitle('Error')
     .setDescription("<:error:454318141938597899> You must set a duration for the lockdown in either hours, minutes or seconds")  
     .setColor('36393e')
@@ -18,7 +18,7 @@ const ms = require("ms");
       message.channel.overwritePermissions(message.guild.id, {
         SEND_MESSAGES: null
       }).then(() => {
-        var liftedembed = new Discord.MessageEmbed()
+        var liftedembed = new Discord.RichEmbed()
         .setTitle('<:padunlock:453624572051456000> Lockdown')
         .setDescription("loockdown lifted.")  
         .setColor('36393e')
@@ -32,7 +32,7 @@ const ms = require("ms");
       message.channel.overwritePermissions(message.guild.id, {
         SEND_MESSAGES: false
       }).then(() => {
-        var lockdownembed = new Discord.MessageEmbed()
+        var lockdownembed = new Discord.RichEmbed()
         .setTitle("<:padlock:453624546591768597> Channel Locked")
         .addField("Locked by", `${message.author}`, true)
         .addField("Locked for", `${ms(ms(time), { long:true })}`, true)
@@ -40,7 +40,7 @@ const ms = require("ms");
         message.channel.send(lockdownembed).then(() => {
 
           bot.lockit[message.channel.id] = setTimeout(() => {
-            var liftedembed = new Discord.MessageEmbed()
+            var liftedembed = new Discord.RichEmbed()
             .setTitle('<:padunlock:453624572051456000> Lockdown')
             .setDescription(" loockdown lifted.")  
             .setColor('36393e') 
@@ -59,7 +59,7 @@ const ms = require("ms");
     }
 
     } else {
-        var nopermsembed = new Discord.MessageEmbed()
+        var nopermsembed = new Discord.RichEmbed()
         .setTitle('Error')
         .setDescription("<:error:454318141938597899> Missing Permissions :: MANAGE_SERVER")  
         .setColor('36393e')
