@@ -5,7 +5,7 @@ const config = {
   "botadminid": "365444611981967371",
 
   "token": process.env.BOT_TOKEN,
- "prefix": "//",
+ "prefix": "b//",
 
   "defaultSettings" : {
    "modLogChannel": "mod-log",
